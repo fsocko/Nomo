@@ -1,0 +1,102 @@
+<html>
+
+<head>
+
+<title>Simple example of an interactive, JAVA-based nomogram of the type
+created by the nomogram generating tool for electrostatic hazard assessment</title>
+
+<SCRIPT LANGUAGE="javascript">
+
+
+image5 = new Image();
+
+image5.src = "Images/main2.gif";
+
+//-->
+
+</SCRIPT></head>
+
+<body bgcolor=#FAF0E6 text=#006400 link=#00008B alink=#FF7F50 vlink=purple>
+
+<center>
+
+<h1>
+An Example of an Interactive Nomogram:</h1>
+</center>
+
+<hr>
+
+<font color=#191970>
+
+<h3>This page describes an online, interactive nomogram that is useful in industrial safety work to assess
+electrostatic ignition hazards for capacitive discharges.
+<A HREF="http://www.ece.rochester.edu/~jones/demos/nomogram.html">CLICK HERE</A> to visit the page.</h3>
+
+<p>The nomogram works by computing
+the electrostatic energy (<i>U</i><sub>e</sub>) stored in a capacitive model
+for a practical system.  On the energy scale of this nomogram are marked
+values of minimum electrostatic discharge energy (MIE = Minimum Ignition
+Energy) known to ignite typical flammable materials, such as gas/air
+mixtures, vapors, and dust suspended in air.  A user can quickly assess the
+risk by comparing the calculated value of <i>U</i><sub>e</sub> to MIE . The
+equation for capacitive energy is:
+
+
+
+<center><font size="+1"><i>U</i><sub>e</sub> =
+
+<i>CV</i><sup>2</sup>/2</font></center>
+
+<p>
+
+where <i>C</i> = system capacitance (Farads) and <i>V</i> is voltage
+(Volts), both of which typically are estimated using a worst-case approach.
+The determination of MIE is sometimes very difficult, but once a
+value is known, a safety engineer can assess the risk of ignition in an
+industrial plant or commercial facility.  If the calculation reveals that
+
+<p><center><font size="+1"><i>U</i><sub>e</sub> < MIE</font></center>
+
+<p>then the likelihood of an ignition is low.  Conversely, if
+<p><center><font size="+1"><i>U</i><sub>e</sub> > MIE</font></center>
+<p>then appropriate actions are called for to reduce the hazard.
+
+<p>
+
+<p>To view the online interactive nomogram based on the above equation, 
+<A HREF="http://www.ece.rochester.edu/~jones/demos/nomogram.html">CLICK HERE</A>.
+Note the typical values for <i>C</i>, MIE, and <i>V</i> displayed for
+convenience on the various scales.
+
+<br><br><p><font color="red">NOTE:  For convenience in certain situations,
+this particulate nomogram contains an extra scale for calculating the charge <i>Q</i> (in
+Coulombs).  The relationship betweeen charge and the other variables is
+
+<p><center><font size="+1"><i>Q = CV</i></font></font></p></center>
+
+<p><hr><p><center>
+
+<A HREF="http://www.ece.rochester.edu/~jones/NomoDevel/test.htm">MAIN PAGE</A> | <A HREF="http://www.ece.rochester.edu/~jones/NomoDevel/nomopage.htm">NOMOGRAM CREATION TOOL
+
+</A>  | <A HREF="http://www.ece.rochester.edu/~jones/demos/nomogram.html">ELECTROSTATIC NOMOGRAM</A>
+
+</font>
+
+<br><br><P>
+
+<!-- "Lastmodified" script: read-in 'lastmod' to insert in other HTML 
+
+// -->
+
+<script language="JavaScript">
+<!--hiding script
+
+document.write("<h5>Last updated by T. B. Jones on "+document.lastModified+".</h5>");
+
+// end -->
+</script>
+
+</center>
+
+</body>
+</html>
