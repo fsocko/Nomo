@@ -1,7 +1,14 @@
+package nomo;
+
+/* Nomogram applet originally written by Jethro Berelson and Professor Thomas Jones,
+ * University of Rochester, NY.
+ * 
+ * V1.1 (2016): Code refactorisation, updates for J8 compatibility. (Filip Socko)
+ */
+
 import java.awt.*;
 import java.awt.event.*;
 import java.applet.Applet;
-
 import java.awt.Graphics;
 import java.awt.Color;
 import java.awt.Event;
@@ -10,7 +17,7 @@ import java.awt.Image;
 import java.lang.Math;
 
 
-public class nomogram extends Applet implements ActionListener
+public class Nomogram extends Applet implements ActionListener
 {
 
 /////////////////////////////////////////////////
@@ -276,8 +283,7 @@ public void getUserInput() {
         getInput.add(expression);
 
 
-		//Label blankspace= new Label("                                            
-      ");
+		//Label blankspace= new Label("  ");
 		//getInput.add(blankspace);
 
 		Panel aConst= new Panel();
@@ -297,8 +303,7 @@ public void getUserInput() {
         //getInput.add(Lconst3);
         //TextField const3= new TextField(8);
         //getInput.add(const3);
-        //Label blankspace2= new Label("                                     
-                         ");
+        //Label blankspace2= new Label("  ");
 		  //getInput.add(blankspace2);
 
 
@@ -329,8 +334,7 @@ public void getUserInput() {
 		}
 
 		Panel labelNames= new Panel();
-		Label getLabels = new Label("Enter the names for variables a, b, and c 
-(ex.:  distance)  ");
+		Label getLabels = new Label("Enter the names for variables a, b, and c (ex.:  distance)  ");
 		labelNames.add(getLabels);
 		getInput.add(labelNames);
 		Panel Name1= new Panel();
@@ -444,27 +448,19 @@ public void getUserInput2() {
        }
 
 
-
-
 	 Label full_exp;
 
      if (exType==5)
-      full_exp= new Label(""+constantA+" 
-"+nameA+"^"+exponentA+op+constantB+" "+nameB+
-                          "^"+exponentB+" = "+nameC+"^"+exponentC);
+      full_exp= new Label(""+constantA+" "+nameA+"^"+exponentA+op+constantB+" "+nameB+"^"+exponentB+" = "+nameC+"^"+exponentC);
       else
-	   full_exp= new Label(""+constantA +" "+ nameA + op +constantB+" "+nameB+" 
-= " +nameC);
+	   full_exp= new Label(""+constantA +" "+ nameA + op +constantB+" "+nameB+" = " +nameC);
 
 	 getInput2.setLayout(new FlowLayout());
-
-
 	 getInput2.add(full_exp);
 
 
         Panel unitsLabel= new Panel();
-        Label enterUnits= new Label("Enter the name of the units used for 
-the variables (ex. kilometers)");
+        Label enterUnits= new Label("Enter the name of the units used for the variables (ex. kilometers)");
         unitsLabel.add(enterUnits);
         getInput2.add(unitsLabel);
 
@@ -746,10 +742,8 @@ Math.pow(10,minB),exponentB)
                          , 1/exponentC);
                    break;
           default:
-                   //minC= ( constantA*Math.pow(minA,exponentA) * 
-constantB*Math.pow(minB,exponentB));
-                   //maxC= ( constantA*Math.pow(maxA,exponentA) * 
-constantB*Math.pow(maxB,exponentB));
+                   //minC= ( constantA*Math.pow(minA,exponentA) * constantB*Math.pow(minB,exponentB));
+                   //maxC= ( constantA*Math.pow(maxA,exponentA) *constantB*Math.pow(maxB,exponentB));
                    minC=0;  maxC=0;
           }
 
@@ -955,20 +949,9 @@ public void paint(Graphics g) {
      g.setColor(Color.black);
 
      if (exType==5)
-      g.drawString(""+constantA+" "+nameA+"^"+exponentA+op+constantB+" 
-"+nameB+
-                          "^"+exponentB+" = "+nameC+"^"+exponentC, 
-width/2-100, 15);
+      g.drawString(""+constantA+" "+nameA+"^"+exponentA+op+constantB+" "+nameB+  "^"+exponentB+" = "+nameC+"^"+exponentC, width/2-100, 15);
       else
-	   g.drawString(""+constantA +" "+ nameA + op +constantB+" "+nameB+" = " 
-+nameC
-	                    ,width/2-100, 15);
-
-
-
-
-
-
+	   g.drawString(""+constantA +" "+ nameA + op +constantB+" "+nameB+" = " +nameC, width/2-100, 15);
 
 
 
@@ -1063,8 +1046,7 @@ height-lineSpace-10);
          double intervalPosition;
          double i;
 
-         //minLocationA= minLocationA+ 
-(int)((minLocationA%interval)*unitSpaceA);
+         //minLocationA= minLocationA+ (int)((minLocationA%interval)*unitSpaceA);
 
          int minInterval= (int) minA ;
             //(int) minA+ (int)minA%interval;
@@ -1274,35 +1256,21 @@ lineSpace+10);
             }
 
 
-
-
         //draw middle scale
-
-
-
-        //create new variables which contain normal cartesian coordinates 
-for
+        //create new variables which contain normal cartesian coordinates for
         //the actual pixel coordinates
-
 
 
         int maxLocB= height- lineSpace-10;
         int maxLocA= height- lineSpace-10;
 
-
         int minLocB=lineSpace+10;
         int minLocA=lineSpace+10;
 
-
-
-
-        double slope1= (double)(  (double)(maxLocB- minLocA) /
-                          (double)(width-lineSpace-lineSpace));
+        double slope1= (double)(  (double)(maxLocB- minLocA) /  (double)(width-lineSpace-lineSpace));
         double B1= (minLocB- slope1*lineSpace);
         //g.drawString("slope1 is "+slope1, width/2, 10);
-
-        //yPosition which corresponds to the line which gets a value of 
-minA+maxB
+        //yPosition which corresponds to the line which gets a value of minA+maxB
         double yPosition;
 
 
@@ -1374,8 +1342,7 @@ maxB*constantB-minB*constantB)/constantA);
 
 
 ///////////////////////////////////////////////////////////////////////////////////
-//if it is a logarithmic scale, the endpoints of the middle scale need to be 
-moved
+//if it is a logarithmic scale, the endpoints of the middle scale need to be moved
 //so that it lines up properly
 //////////////////////////////////////////////////////////////////////////////////
 
