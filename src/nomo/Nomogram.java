@@ -9,6 +9,10 @@ package nomo;
 import java.awt.*;
 import java.awt.event.*;
 import java.applet.Applet;
+
+import javax.swing.*;
+
+
 import java.awt.Graphics;
 import java.awt.Color;
 import java.awt.Event;
@@ -28,17 +32,12 @@ public class Nomogram extends Applet implements ActionListener
 
         //type of expression (mult, div, sub, etc...)
         int exType;
-
         int done;  //when user has finished entering the input
 
         //the distance between units in pixels
         double unitDistanceA, unitDistanceB, unitDistanceC ;
-
-
         int height=450;
         int width= 660;
-
-
         int lineSpace=60;
 
         //constants used in expression
@@ -121,9 +120,9 @@ public class Nomogram extends Applet implements ActionListener
 		Button five = new Button("a^m X b^n = c^p");
 
 
-		Button okButton= new Button("                ok                ");
+		Button okButton= new Button(" ok ");
 
-		Button okButton2= new Button("                ok                ");
+		Button okButton2= new Button("  ok ");
 
 		Button restart= new Button("restart");
 
@@ -161,7 +160,7 @@ public class Nomogram extends Applet implements ActionListener
         TextField cUnits= new TextField(20);
 
         TextField aMinText, bMinText, cMinText, aMaxText, bMaxText, 
-cMaxText;
+        cMaxText;
 
         TextField intervalA, intervalB, intervalC;
 
@@ -185,16 +184,12 @@ cMaxText;
 ///////////////////////////////////////////////////////////////////////////
 
 public void init() {
-
+		
+		
         restartFrame= new Frame("choose intervals");
         restartFrame.setLayout(new FlowLayout());
-
-
-
-
 		setLayout(new FlowLayout(FlowLayout.CENTER,0, height-20));
-
-        begin();
+		begin();
   }
 
 
@@ -211,10 +206,6 @@ public void begin() {
         getExpression= new Frame("Choose expression type");
 	    getInput= new Frame("User Input");
 	    getInput2= new Frame("User Input");
-
-
-
-
 
         getExpression.setLayout(new FlowLayout());
 
@@ -357,9 +348,6 @@ public void getUserInput() {
         cName.setText("C");
 		Name3.add(cName);
 		getInput.add(Name3);
-
-
-
 
 
       Panel ok = new Panel();
@@ -1174,16 +1162,11 @@ lineSpace+10);
 
         }
 
-
-
-
         //label the right scale
         difference =  maxB- minB;
         locationDifference= minLocationB-maxLocationB;
         double unitSpaceB=  locationDifference/difference;
         //int interval;
-
-
 
 
         if (unitSpaceB > 20)
@@ -1201,11 +1184,7 @@ lineSpace+10);
 
          //g.drawString("interval is "+ interval, 550, 30);
 
-
-
-
          minInterval= (int)minB;
-
 
 
          if (  (exType==4)  || (exType==3) )
@@ -1242,16 +1221,13 @@ lineSpace+10);
                            width-lineSpace+3, (int)(intervalPosition));
                 if (logarithmic==1)
                {
-                g.drawString("10", width-lineSpace+5, (int) 
-(intervalPosition+5));
+                g.drawString("10", width-lineSpace+5, (int)(intervalPosition+5));
                 g.setFont(smallFont);
-                g.drawString(""+(int)i, width-lineSpace+18, (int) 
-(intervalPosition-1));
+                g.drawString(""+(int)i, width-lineSpace+18, (int)(intervalPosition-1));
                 g.setFont(normalFont);
                }
                else
-                g.drawString(""+(int)i, width-lineSpace+5, 
-(int)(intervalPosition+5));
+                g.drawString(""+(int)i, width-lineSpace+5, (int)(intervalPosition+5));
                }
             }
 
@@ -1277,30 +1253,22 @@ lineSpace+10);
       switch (exType) {
         case 1: //multiplication
 
-        yPosition= (double) (minLocA+ (double) unitSpaceA* (double)
-                            (  maxB
-                              - minB  )
-                                      )  ;
+        yPosition= (double) (minLocA+ (double) unitSpaceA* (double)(  maxB  - minB  )  )  ;
 
         break;
         case 2: //addition
 
-        yPosition=  (double)(minLocA+ unitSpaceA* ( 
-maxB*constantB-minB*constantB)/constantA);
+        yPosition=  (double)(minLocA+ unitSpaceA* ( maxB*constantB-minB*constantB)/constantA);
         break;
 
         case 3: //division
 
-        yPosition= (double) (minLocA+  unitSpaceA*
-                               (maxB
-                                 - minB )
-                                  );
+        yPosition= (double) (minLocA+  unitSpaceA*(maxB- minB ));
          break;
 
         case 4: //subtraction
 
-        yPosition=  (double)(minLocA+ unitSpaceA* ( 
-maxB*constantB-minB*constantB)/constantA);
+        yPosition=  (double)(minLocA+ unitSpaceA* ( maxB*constantB-minB*constantB)/constantA);
         break;
 
         default:
@@ -1326,16 +1294,7 @@ maxB*constantB-minB*constantB)/constantA);
 
         g.setColor(Color.black);
         int mid=  (int)  (  (double)(B2-B1)/(double)(slope1- slope2) );
-
-
-
-
         g.setFont(normalFont);
-
-
-
-
-
         minLocationC= minLocationB;
         maxLocationC= maxLocationB;
 
@@ -1435,7 +1394,7 @@ Math.log(constantB)/Math.log(10);
         //find the location of the minimum power of 10
         while ( currentC > minC )
           {  //g.setColor(Color.green);
-             //g.drawString("fukker",50,50);
+             //g.drawString("example",50,50);
              minLocationC+=1;
              currentA=   minA - (minLocationC-minLocationA) /unitSpaceA;
              currentB=   maxB + (minLocationC-minLocationB) /unitSpaceB;
@@ -1656,7 +1615,7 @@ Math.log(constantB)/Math.log(10);
 
         default:
 
-        case 5: //multiplication with exponents
+         //multiplication with exponents
         valueA= minA + (minLocationA-intercept1.y)/unitSpaceA;
         valueB= minB + (minLocationB-intercept3.y)/unitSpaceB;
         valueA= Math.pow(10,valueA);
@@ -1671,8 +1630,7 @@ Math.log(constantB)/Math.log(10);
 
 
           //output the values
-          g.drawString(""+nameA+"= "+
-                        valueA +" "+unitsA, solutionX+10, solutionY+20);
+          g.drawString(""+nameA+"= "+valueA +" "+unitsA, solutionX+10, solutionY+20);
           g.setFont(f2);
           g.setColor(Color.black);
           g.setFont(f);
@@ -1683,9 +1641,7 @@ Math.log(constantB)/Math.log(10);
           g.setColor(Color.black);
           g.setFont(f);
           g.setColor(Color.red);
-          g.drawString(""+nameC+"= "+
-                         roundOff(valueC) +" " +unitsC,solutionX+10, 
-solutionY+60);
+          g.drawString(""+nameC+"= "+roundOff(valueC) +" " +unitsC,solutionX+10, solutionY+60);
 
 
           g.setFont(f2);
@@ -1707,16 +1663,10 @@ height-lineSpace+30);
             g.setColor(Color.black);
             }
 
-
-
-
-
-
      }//end of if (done==1)
    g.setColor(Color.black);
    g.setFont(nameFont);
-   g.drawString("Created by Jethro Berelson and Professor Thomas Jones", 
-width/2, height+20);
+   g.drawString("Created by Jethro Berelson and Professor Thomas Jones", width/2, height+20);
 
 
   }//end of paint function
