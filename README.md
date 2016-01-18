@@ -1,2 +1,3 @@
-# Nomo
-Compatibility updates and development to Nomogram Applet designed by J. Berelson and Prof. T. Jones.
+# Nomogram
+Compatibility updates and development to Nomogram Application designed by R. Camara, A. Marrero, and Professor Thomas Jones,
+University of Rochester, NY.
