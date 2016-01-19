@@ -1,5 +1,11 @@
 package nomoApp;
 
+/*Compatibility updates and development to Nomogram Application designed by R. Camara,
+ *A. Marrero, and Professor Thomas Jones, University of Rochester, NY.
+ * 
+ * V1.1 (2016): Code refactorisation, updates for J8 compatibility. (Filip Socko)
+ */
+
 import java.awt.Dimension;
 
 import javax.swing.JFrame;

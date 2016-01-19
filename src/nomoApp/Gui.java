@@ -1,7 +1,7 @@
 package nomoApp;
 
-/* Nomogram applet originally written by Jethro Berelson and Professor Thomas Jones,
- * University of Rochester, NY.
+/*Compatibility updates and development to Nomogram Application designed by R. Camara,
+ *A. Marrero, and Professor Thomas Jones, University of Rochester, NY.
  * 
  * V1.1 (2016): Code refactorisation, updates for J8 compatibility. (Filip Socko)
  */
